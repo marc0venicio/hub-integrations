@@ -1,0 +1,37 @@
+FROM php:8.3.6-fpm
+
+LABEL maintainer="Marco Venicio"
+
+WORKDIR /data/www
+
+RUN apt update && apt install -y \
+    bash \
+    curl \
+    git \
+    libpng-dev \
+    libzip-dev \
+    supervisor \
+    unzip \
+    zip \
+    libpq-dev \
+    && apt-get clean
+
+RUN docker-php-ext-install pdo_mysql gd zip
+
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+    && php composer-setup.php --install-dir=/usr/bin --filename=composer
+
+RUN curl -fsSL https://nodejs.org/dist/v15.14.0/node-v15.14.0-linux-x64.tar.xz -o node-v15.14.0.tar.xz && \
+    tar -xf node-v15.14.0.tar.xz && \
+    mv node-v15.14.0-linux-x64 /usr/local/node && \
+    rm node-v15.14.0.tar.xz
+
+RUN ln -s /usr/local/node/bin/node /usr/local/bin/node && \
+    ln -s /usr/local/node/bin/npm /usr/local/bin/npm && \
+    ln -s /usr/local/node/bin/npx /usr/local/bin/npx
+
+ENV PATH="/usr/local/node/bin:${PATH}"
+
+COPY docker/php/php.ini /usr/local/etc/php/
+
+CMD ["php-fpm"]
