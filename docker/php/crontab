@@ -1,7 +1,0 @@
-SHELL=/bin/sh
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-# m h dom mon dow user  command
-* * * * * php /data/www/artisan schedule:run 2>&1 | timestamp  >> /var/log/cron.log
-
-* * * * * chmod 777 -R /data/www/storage
-#
