@@ -16,6 +16,8 @@ class AbilitiesController extends Controller
             ->pluck('title')
             ->toArray();
 
+        // dd($permissions);
+
         return new AbilityResource($permissions);
     }
 }
