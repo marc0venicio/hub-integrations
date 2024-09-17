@@ -1,20 +1,15 @@
 <?php
 
-Route::redirect('/', '/login');
-Route::redirect('/dashboard', '/admin/dashboard');
-
-Auth::routes(['register' => false]);
-
-Route::group([
-    'prefix'     => 'admin',
-    'as'         => 'admin.',
-    'namespace'  => 'Admin',
-    'middleware' => ['auth'],
-], function () {
-    Route::view('/{any?}', 'layouts.admin.app')->name('dashboard')->where('any', '.*');
-});
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
 
 
-Route::get('shopify', function() {
-    return "OK";
-});
+Route::get('health', fn () => response()->json([
+    'status' => 'ok', 'working' => true,
+    ])
+);
+
+foreach (File::allFiles(__DIR__ . '/RoutesWeb') as $partial) {
+    Route::prefix('/')->group($partial->getPathname());
+}
+

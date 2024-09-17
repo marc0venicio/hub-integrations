@@ -6,6 +6,8 @@ function initialState() {
       platform: null,
       api_key: '',
       api_secret: '',
+      first_route_name: '',
+      second_route_name: '',
       access_token: '',
       refresh_token: '',
       expires_at: '',
@@ -101,6 +103,12 @@ const actions = {
   setApiKey({ commit }, value) {
     commit('setApiKey', value)
   },
+  setFirstUrl({ commit }, value) {
+    commit('setFirstUrl', value)
+  },
+  setSecondUrl({ commit }, value) {
+    commit('setSecondUrl', value)
+  },
   setApiSecret({ commit }, value) {
     commit('setApiSecret', value)
   },
@@ -158,6 +166,12 @@ const mutations = {
   },
   setApiSecret(state, value) {
     state.entry.api_secret = value
+  },
+  setFirstUrl(state, value) {
+    state.entry.first_route_name = value
+  },
+  setSecondUrl(state, value) {
+    state.entry.second_route_name = value
   },
   setAccessToken(state, value) {
     state.entry.access_token = value

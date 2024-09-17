@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "adminapp/js/chunks/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"9fa1f531ecbccd26850a","1":"b60ad759b60b41ae54aa","2":"80c20eb5c4f95c360119","3":"62727dcfc4522587115d","4":"e954eb7a418f7d663d27","5":"1bebdcb152a80e2599a6","6":"804e62ba485017fc9038","7":"ebe4197488f776442bac","8":"19df5d089f41a1bd5bbb","9":"be9bd5530e1e9f983b9d","10":"197416d74cd7f2a41c1d","11":"cd1e005c77574d3a0a88","12":"460bdef6ddde3228911e","13":"adc7210ab6a6fbf531d1","14":"87622f0e6a3e8076ba7e","15":"36214344d8a51cb36d60","16":"6b9973936f07c089eaf7","17":"09024051757be43988c8","18":"47e1e408ffddb190626d","19":"bfb5fd7bcdef5a12cbb8","20":"9fab12f8b9111c5cf6cb","21":"cb2cf0156e2771a1ed99","22":"a6998cf4085c3ff2c809","23":"85c86cdb14e2758b51ef","24":"1e871585aabd3f8bd922","25":"8b44a884b3527b89bc70","26":"5811cefc8a29181dbad4","27":"f0c7cbc03a7fb6095e5e","28":"fb8da50ff5b1ca5f4030","29":"779c3396bddbc4e25a29","30":"2c62a7b6812884f80100","31":"e68020500b8cc748901e","32":"b4ead461bf5f369d49c6","33":"c12a17a9b4d1de340c95","34":"d35e67fec0e18e7afa07"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "adminapp/js/chunks/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d7a817a61db65cb0e242","1":"0b308aef21ab6ea73133","2":"bf2cfd0234259fef650e","3":"b23b077e06c7d984ab7c","4":"72877c1277170c2e8359","5":"645c6c346ed1d338e327","6":"f70fe3ead9641a3a6449","7":"6832f2608efb1bd9abec","8":"abc8a450f25f615d4092","9":"8fa450a67745b295ba84","10":"1c574d6c4166a856ee86","11":"ff8e6c22c10c8db1b3ec","12":"583be8fc5f7d19fef7ca","13":"543d3edac7a4eeccfe64","14":"0a40f3b3fab13ed9267c","15":"87719b09822a6e11b0a4","16":"0ab276bd33e6f5d4dc00","17":"89eca34fc99f5e67a418","18":"4451b28735e5af5e7a25","19":"419b549549ae96dae1e0","20":"3c89c5e8d735e3c8f55c","21":"fb0178df7733799ca534","22":"96a1d7672428d90e7ed0","23":"717b2f2ac55b666a972e","24":"71d4bf2583c2ee1bcb54","25":"b88c596f4dc9101a7a21","26":"3e0bca8d6e1ab7dfb7a2","27":"11f0e8a2765f4502bf63","28":"348f5ec0a61418f7f5aa","29":"30190d15c70c0e5ee021","30":"bc30ef0fb9abfb0e6c2a","31":"07c13c266494f1643dd2","32":"f3059f30282ade873c52","33":"e9d9d7499463fe979db1","34":"4bcb5b646531584b5d5f"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -56336,6 +56336,8 @@ function initialState() {
       platform: null,
       api_key: '',
       api_secret: '',
+      first_route_name: '',
+      second_route_name: '',
       access_token: '',
       refresh_token: '',
       expires_at: '',
@@ -56437,57 +56439,65 @@ var actions = {
     var commit = _ref5.commit;
     commit('setApiKey', value);
   },
-  setApiSecret: function setApiSecret(_ref6, value) {
+  setFirstUrl: function setFirstUrl(_ref6, value) {
     var commit = _ref6.commit;
+    commit('setFirstUrl', value);
+  },
+  setSecondUrl: function setSecondUrl(_ref7, value) {
+    var commit = _ref7.commit;
+    commit('setSecondUrl', value);
+  },
+  setApiSecret: function setApiSecret(_ref8, value) {
+    var commit = _ref8.commit;
     commit('setApiSecret', value);
   },
-  setAccessToken: function setAccessToken(_ref7, value) {
-    var commit = _ref7.commit;
+  setAccessToken: function setAccessToken(_ref9, value) {
+    var commit = _ref9.commit;
     commit('setAccessToken', value);
   },
-  setRefreshToken: function setRefreshToken(_ref8, value) {
-    var commit = _ref8.commit;
+  setRefreshToken: function setRefreshToken(_ref10, value) {
+    var commit = _ref10.commit;
     commit('setRefreshToken', value);
   },
-  setExpiresAt: function setExpiresAt(_ref9, value) {
-    var commit = _ref9.commit;
+  setExpiresAt: function setExpiresAt(_ref11, value) {
+    var commit = _ref11.commit;
     commit('setExpiresAt', value);
   },
-  setCreatedAt: function setCreatedAt(_ref10, value) {
-    var commit = _ref10.commit;
+  setCreatedAt: function setCreatedAt(_ref12, value) {
+    var commit = _ref12.commit;
     commit('setCreatedAt', value);
   },
-  setUpdatedAt: function setUpdatedAt(_ref11, value) {
-    var commit = _ref11.commit;
+  setUpdatedAt: function setUpdatedAt(_ref13, value) {
+    var commit = _ref13.commit;
     commit('setUpdatedAt', value);
   },
-  setDeletedAt: function setDeletedAt(_ref12, value) {
-    var commit = _ref12.commit;
+  setDeletedAt: function setDeletedAt(_ref14, value) {
+    var commit = _ref14.commit;
     commit('setDeletedAt', value);
   },
-  fetchCreateData: function fetchCreateData(_ref13) {
-    var commit = _ref13.commit;
+  fetchCreateData: function fetchCreateData(_ref15) {
+    var commit = _ref15.commit;
     axios.get("".concat(route, "/create")).then(function (response) {
       commit('setLists', response.data.meta);
     });
   },
-  fetchEditData: function fetchEditData(_ref14, id) {
-    var commit = _ref14.commit,
-      dispatch = _ref14.dispatch;
+  fetchEditData: function fetchEditData(_ref16, id) {
+    var commit = _ref16.commit,
+      dispatch = _ref16.dispatch;
     axios.get("".concat(route, "/").concat(id, "/edit")).then(function (response) {
       commit('setEntry', response.data.data);
       commit('setLists', response.data.meta);
     });
   },
-  fetchShowData: function fetchShowData(_ref15, id) {
-    var commit = _ref15.commit,
-      dispatch = _ref15.dispatch;
+  fetchShowData: function fetchShowData(_ref17, id) {
+    var commit = _ref17.commit,
+      dispatch = _ref17.dispatch;
     axios.get("".concat(route, "/").concat(id)).then(function (response) {
       commit('setEntry', response.data.data);
     });
   },
-  resetState: function resetState(_ref16) {
-    var commit = _ref16.commit;
+  resetState: function resetState(_ref18) {
+    var commit = _ref18.commit;
     commit('resetState');
   }
 };
@@ -56506,6 +56516,12 @@ var mutations = {
   },
   setApiSecret: function setApiSecret(state, value) {
     state.entry.api_secret = value;
+  },
+  setFirstUrl: function setFirstUrl(state, value) {
+    state.entry.first_route_name = value;
+  },
+  setSecondUrl: function setSecondUrl(state, value) {
+    state.entry.second_route_name = value;
   },
   setAccessToken: function setAccessToken(state, value) {
     state.entry.access_token = value;
@@ -57427,8 +57443,8 @@ var debug = "development" !== 'production';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/resources/adminapp/js/app.js */"./resources/adminapp/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/resources/adminapp/sass/app.scss */"./resources/adminapp/sass/app.scss");
+__webpack_require__(/*! /root/projects/pessoal/fortweb/hub-integrations/resources/adminapp/js/app.js */"./resources/adminapp/js/app.js");
+module.exports = __webpack_require__(/*! /root/projects/pessoal/fortweb/hub-integrations/resources/adminapp/sass/app.scss */"./resources/adminapp/sass/app.scss");
 
 
 /***/ })

@@ -41,12 +41,6 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin'], 
 
 });
 Route::prefix('shopify')->group(function () {
-
-        Route::get('/auth', [ShopifyAuthController::class, 'authShopify'])->name('shopify.auth');
-
-        Route::get('/callback', [ShopifyAuthController::class, 'handleCallback'])->name('shopify.callback');
-
-        Route::get('/products', [ShopifyController::class, 'index'])->name('shopify.products');
-
-        Route::post('/products', [ShopifyController::class, 'store'])->name('shopify.products.store');
-    });
+    Route::get('/products', [ShopifyController::class, 'index'])->name('shopify.products');
+    Route::post('/products', [ShopifyController::class, 'store'])->name('shopify.products.store');
+});

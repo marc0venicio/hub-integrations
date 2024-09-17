@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\Admin\UserResource;
+use App\Models\CustomRoute;
 use App\Models\Role;
 use App\Models\User;
 use Gate;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class UsersApiController extends Controller
@@ -18,7 +18,7 @@ class UsersApiController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new UserResource(User::with(['roles'])->advancedFilter());
+        return new UserResource(User::with(['roles', 'customRoutes'])->advancedFilter());
     }
 
     public function store(StoreUserRequest $request)

@@ -22,6 +22,14 @@ class UpdateShopRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'first_route_name' => [
+                'string',
+                'required',
+            ],
+            'second_route_name' => [
+                'string',
+                'required',
+            ],
             'platform' => [
                 'required',
                 'in:' . implode(',', Arr::pluck(Shop::PLATFORM_SELECT, 'value')),

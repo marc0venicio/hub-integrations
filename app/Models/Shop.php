@@ -6,6 +6,7 @@ use App\Support\HasAdvancedFilter;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Shop extends Model
@@ -51,6 +52,8 @@ class Shop extends Model
         'platform',
         'api_key',
         'api_secret',
+        'first_route_name',
+        'second_route_name',
         'access_token',
         'refresh_token',
         'expires_at',
@@ -78,7 +81,7 @@ class Shop extends Model
         ],
     ];
 
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
     }
@@ -86,5 +89,11 @@ class Shop extends Model
     public function getPlatformLabelAttribute()
     {
         return collect(static::PLATFORM_SELECT)->firstWhere('value', $this->platform)['label'] ?? '';
+    }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'shop_user')
+                    ->withTimestamps();
     }
 }
