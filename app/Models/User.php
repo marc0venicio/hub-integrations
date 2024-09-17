@@ -87,4 +87,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    public function shops()
+    {
+        return $this->belongsToMany(Shop::class, 'shop_user')
+                    ->withTimestamps();
+    }
 }

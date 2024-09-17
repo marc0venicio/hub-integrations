@@ -102,6 +102,44 @@
                   <div
                     class="form-group bmd-form-group"
                     :class="{
+                      'has-items': entry.first_route_name,
+                      'is-focused': activeField == 'first_route_name'
+                    }"
+                  >
+                    <label class="bmd-label-floating">{{
+                      $t('cruds.shop.fields.first_route_name')
+                    }}</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      :value="entry.first_route_name"
+                      @input="updateFirstUrl"
+                      @focus="focusField('first_route_name')"
+                      @blur="clearFocus"
+                    />
+                  </div>
+                  <div
+                    class="form-group bmd-form-group"
+                    :class="{
+                      'has-items': entry.second_route_name,
+                      'is-focused': activeField == 'second_route_name'
+                    }"
+                  >
+                    <label class="bmd-label-floating">{{
+                      $t('cruds.shop.fields.second_route_name')
+                    }}</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      :value="entry.second_route_name"
+                      @input="updateSecondUrl"
+                      @focus="focusField('second_route_name')"
+                      @blur="clearFocus"
+                    />
+                  </div>
+                  <div
+                    class="form-group bmd-form-group"
+                    :class="{
                       'has-items': entry.access_token,
                       'is-focused': activeField == 'access_token'
                     }"
@@ -203,6 +241,8 @@ export default {
       'setPlatform',
       'setApiKey',
       'setApiSecret',
+      'setFirstUrl',
+      'setSecondUrl',
       'setAccessToken',
       'setRefreshToken',
       'setExpiresAt',
@@ -216,6 +256,12 @@ export default {
     },
     updateApiKey(e) {
       this.setApiKey(e.target.value)
+    },
+    updateFirstUrl(e) {
+      this.setFirstUrl(e.target.value)
+    },
+    updateSecondUrl(e) {
+      this.setSecondUrl(e.target.value)
     },
     updateApiSecret(e) {
       this.setApiSecret(e.target.value)

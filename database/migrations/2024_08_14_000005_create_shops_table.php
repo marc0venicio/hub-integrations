@@ -10,15 +10,19 @@ class CreateShopsTable extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('platform');
             $table->string('api_key')->nullable();
             $table->string('api_secret')->nullable();
+            $table->string('first_route_name')->nullable();
+            $table->string('second_route_name')->nullable();
             $table->string('access_token')->nullable();
             $table->string('refresh_token')->nullable();
             $table->string('expires_at')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 }

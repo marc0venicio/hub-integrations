@@ -24,10 +24,10 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd sockets
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 
-RUN curl -fsSL https://nodejs.org/dist/v15.14.0/node-v15.14.0-linux-x64.tar.xz -o node-v15.14.0.tar.xz && \
-    tar -xf node-v15.14.0.tar.xz && \
-    mv node-v15.14.0-linux-x64 /usr/local/node && \
-    rm node-v15.14.0.tar.xz
+RUN curl -fsSL https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz -o node-v16.13.2.tar.xz && \
+    tar -xf node-v16.13.2.tar.xz && \
+    mv node-v16.13.2-linux-x64 /usr/local/node && \
+    rm node-v16.13.2.tar.xz
 
 RUN ln -s /usr/local/node/bin/node /usr/local/bin/node && \
     ln -s /usr/local/node/bin/npm /usr/local/bin/npm && \

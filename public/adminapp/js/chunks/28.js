@@ -31,7 +31,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
   beforeDestroy: function beforeDestroy() {
     this.resetState();
   },
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('ShopsSingle', ['storeData', 'resetState', 'setName', 'setPlatform', 'setApiKey', 'setApiSecret', 'setAccessToken', 'setRefreshToken', 'setExpiresAt', 'fetchCreateData'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('ShopsSingle', ['storeData', 'resetState', 'setName', 'setPlatform', 'setApiKey', 'setApiSecret', 'setFirstUrl', 'setSecondUrl', 'setAccessToken', 'setRefreshToken', 'setExpiresAt', 'fetchCreateData'])), {}, {
     updateName: function updateName(e) {
       this.setName(e.target.value);
     },
@@ -40,6 +40,12 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
     },
     updateApiKey: function updateApiKey(e) {
       this.setApiKey(e.target.value);
+    },
+    updateFirstUrl: function updateFirstUrl(e) {
+      this.setFirstUrl(e.target.value);
+    },
+    updateSecondUrl: function updateSecondUrl(e) {
+      this.setSecondUrl(e.target.value);
     },
     updateApiSecret: function updateApiSecret(e) {
       this.setApiSecret(e.target.value);
@@ -214,6 +220,52 @@ var render = function render() {
       input: _vm.updateApiSecret,
       focus: function focus($event) {
         return _vm.focusField("api_secret");
+      },
+      blur: _vm.clearFocus
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "form-group bmd-form-group",
+    "class": {
+      "has-items": _vm.entry.first_route_name,
+      "is-focused": _vm.activeField == "first_route_name"
+    }
+  }, [_c("label", {
+    staticClass: "bmd-label-floating"
+  }, [_vm._v(_vm._s(_vm.$t("cruds.shop.fields.first_route_name")))]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.entry.first_route_name
+    },
+    on: {
+      input: _vm.updateFirstUrl,
+      focus: function focus($event) {
+        return _vm.focusField("first_route_name");
+      },
+      blur: _vm.clearFocus
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "form-group bmd-form-group",
+    "class": {
+      "has-items": _vm.entry.second_route_name,
+      "is-focused": _vm.activeField == "second_route_name"
+    }
+  }, [_c("label", {
+    staticClass: "bmd-label-floating"
+  }, [_vm._v(_vm._s(_vm.$t("cruds.shop.fields.second_route_name")))]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.entry.second_route_name
+    },
+    on: {
+      input: _vm.updateSecondUrl,
+      focus: function focus($event) {
+        return _vm.focusField("second_route_name");
       },
       blur: _vm.clearFocus
     }

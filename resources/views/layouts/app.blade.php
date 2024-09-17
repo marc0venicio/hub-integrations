@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="{{ url('/md/img/vue.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>
         {{ trans('panel.site_title') }}
     </title>

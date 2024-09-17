@@ -10,15 +10,23 @@ use Illuminate\Support\Arr;
 
 class StoreShopRequest extends FormRequest
 {
-    public function authorize()
+    public function authorize(): bool
     {
         return Gate::allows('shop_create');
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => [
+                'string',
+                'required',
+            ],
+            'first_route_name' => [
+                'string',
+                'required',
+            ],
+            'second_route_name' => [
                 'string',
                 'required',
             ],
