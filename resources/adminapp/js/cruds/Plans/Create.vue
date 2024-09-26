@@ -180,6 +180,10 @@ export default {
   data() {
     return {
       status: '',
+    //   mock: [
+    //     { label: 'Yes', value: true },
+    //     { label: 'No', value: false },
+    //   ],
       activeField: ''
     }
   },

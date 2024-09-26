@@ -15,7 +15,14 @@ class Plan extends Model
     public $table = 'plans';
 
     public const ACTIVE_RADIO = [
-
+        [
+            'label' => 'Yes',
+            'value' => true,
+        ],
+        [
+            'label' => 'No',
+            'value' => false,
+        ],
     ];
 
     protected $appends = [

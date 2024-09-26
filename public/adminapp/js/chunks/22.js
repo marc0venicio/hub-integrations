@@ -21,6 +21,10 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
   data: function data() {
     return {
       status: '',
+      //   mock: [
+      //     { label: 'Yes', value: true },
+      //     { label: 'No', value: false },
+      //   ],
       activeField: ''
     };
   },

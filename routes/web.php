@@ -13,4 +13,3 @@ foreach (File::allFiles(__DIR__ . '/RoutesWeb') as $partial) {
     Route::prefix('/')->group($partial->getPathname());
 }
 Route::get('home', [HomeWebController::class, 'index'])->name('home.index');
-// TODO: é aqui mesmo macho!
