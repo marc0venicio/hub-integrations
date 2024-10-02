@@ -5,7 +5,7 @@ use App\Http\Controllers\Api\V1\Admin\ShopifyAuthController;
 Route::redirect('/', '/login');
 Route::redirect('/dashboard', '/admin/dashboard');
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
 Route::group([
     'prefix'     => 'admin',

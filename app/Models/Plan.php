@@ -100,4 +100,14 @@ class Plan extends Model
     {
         return collect(static::ACTIVE_RADIO)->firstWhere('value', $this->active)['label'] ?? '';
     }
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
+
 }

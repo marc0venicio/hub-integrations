@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -69,5 +70,17 @@ class RegisterController extends Controller
             'email'    => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        // Verificar se há o plan_id na URL após o registro
+        if ($request->has('plan_id')) {
+            // Redirecionar para a rota de checkout com o plan_id
+            return redirect()->route('checkout', ['plan_id' => $request->plan_id]);
+        }
+
+        // Redirecionar para o dashboard se não houver plan_id
+        return redirect($this->redirectPath());
     }
 }

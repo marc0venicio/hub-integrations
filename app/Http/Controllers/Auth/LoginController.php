@@ -52,4 +52,14 @@ class LoginController extends Controller
             return response(null, Response::HTTP_NO_CONTENT);
         }
     }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if ($request->has('plan_id') || session()->has('plan_id')) {
+            $plan_id = $request->plan_id ?? session('plan_id');
+            return redirect()->route('checkout', ['plan_id' => $plan_id]);
+        }
+
+        return redirect($this->redirectPath());
+    }
 }

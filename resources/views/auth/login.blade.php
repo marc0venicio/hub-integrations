@@ -71,9 +71,10 @@
                                     @endif
 
                                     @if(Route::has('register'))
-                                        <a class="btn btn-link btn-primary" href="{{ route('register') }}">
-                                            {{ __('global.register') }}
-                                        </a>
+                                    <a class="btn btn-link btn-primary" href="{{ route('register', ['plan_id' => request('plan_id')]) }}">
+                                        {{ __('global.register') }}
+                                    </a>
+
                                     @endif
                                 </div>
                             </div>

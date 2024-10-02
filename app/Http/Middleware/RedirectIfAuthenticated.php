@@ -21,6 +21,10 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                if ($request->has('plan_id')) {
+                    return redirect()->route('checkout', ['plan_id' => $request->plan_id]);
+                }
+
                 return redirect(RouteServiceProvider::HOME);
             }
         }

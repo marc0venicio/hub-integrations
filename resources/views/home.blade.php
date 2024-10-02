@@ -14,7 +14,7 @@
                             <h5 class="card-title">{{ $plan->name }}</h5>
                             <p class="text-muted">{{ $plan->description }}</p>
                             <h2 class="fw-bold text-primary">R$ {{ number_format($plan->price, 2, ',', '.') }}/mês</h2>
-                            <a href="#" class="btn btn-primary w-100">Escolher plano</a>
+                            <a href="{{ route('choose.plan', ['plan_id' => $plan->id]) }}" class="btn btn-primary w-100">Escolher plano</a>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">{{ $plan->features }}</li>

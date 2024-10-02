@@ -91,6 +91,16 @@ class User extends Authenticatable
     public function shops()
     {
         return $this->belongsToMany(Shop::class, 'shop_user')
-                    ->withTimestamps();
+            ->withTimestamps();
+    }
+
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
+
+    public function subscription()
+    {
+        return $this->hasOne(Subscription::class);
     }
 }
